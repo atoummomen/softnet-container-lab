@@ -1,0 +1,148 @@
+{
+  "name": "inter-subnet-gateway-lab",
+  "type": "clab",
+  "clab": {
+    "config": {
+      "prefix": "clab",
+      "mgmt": {
+        "network": "clab",
+        "bridge": "br-229b7c213d09",
+        "ipv4-subnet": "172.20.20.0/24",
+        "ipv4-gw": "172.20.20.1",
+        "ipv6-subnet": "3fff:172:20:20::/64",
+        "ipv6-gw": "3fff:172:20:20::1",
+        "external-access": true
+      }
+    }
+  },
+  "ssh-pub-keys": ["ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJY+Spz3aEmbaH1YPUYdR1y63QQvwweUQdNeKv6TJh4g"],
+  "nodes": {
+    "hs1": {
+      "index": "0",
+      "shortname": "hs1",
+      "longname": "clab-inter-subnet-gateway-lab-hs1",
+      "fqdn": "hs1.inter-subnet-gateway-lab.io",
+      "group": "",
+      "labdir": "/home/atoummomen/softnet-container-lab/experiments/02-inter-subnet-gateway-lab/containerlab/clab-inter-subnet-gateway-lab/hs1",
+      "kind": "linux",
+      "image": "clab-ubuntu-softnet:latest",
+      "mgmt-net": "",
+      "mgmt-intf": "",
+      "mgmt-ipv4-address": "172.20.20.4",
+      "mgmt-ipv4-prefix-length": 24,
+      "mgmt-ipv6-address": "3fff:172:20:20::4",
+      "mgmt-ipv6-prefix-length": 64,
+      "mac-address": "",
+      "labels": {
+        "clab-mgmt-net-bridge": "br-229b7c213d09",
+        "clab-node-group": "",
+        "clab-node-kind": "linux",
+        "clab-node-lab-dir": "/home/atoummomen/softnet-container-lab/experiments/02-inter-subnet-gateway-lab/containerlab/clab-inter-subnet-gateway-lab/hs1",
+        "clab-node-longname": "clab-inter-subnet-gateway-lab-hs1",
+        "clab-node-name": "hs1",
+        "clab-node-type": "",
+        "clab-owner": "atoummomen",
+        "clab-topo-file": "/home/atoummomen/softnet-container-lab/experiments/02-inter-subnet-gateway-lab/containerlab/inter-subnet-gateway-lab.clab.yml",
+        "containerlab": "inter-subnet-gateway-lab"
+      },
+      "port-bindings": [
+      ]
+    },
+    "hs2": {
+      "index": "1",
+      "shortname": "hs2",
+      "longname": "clab-inter-subnet-gateway-lab-hs2",
+      "fqdn": "hs2.inter-subnet-gateway-lab.io",
+      "group": "",
+      "labdir": "/home/atoummomen/softnet-container-lab/experiments/02-inter-subnet-gateway-lab/containerlab/clab-inter-subnet-gateway-lab/hs2",
+      "kind": "linux",
+      "image": "clab-ubuntu-softnet:latest",
+      "mgmt-net": "",
+      "mgmt-intf": "",
+      "mgmt-ipv4-address": "172.20.20.2",
+      "mgmt-ipv4-prefix-length": 24,
+      "mgmt-ipv6-address": "3fff:172:20:20::2",
+      "mgmt-ipv6-prefix-length": 64,
+      "mac-address": "",
+      "labels": {
+        "clab-mgmt-net-bridge": "br-229b7c213d09",
+        "clab-node-group": "",
+        "clab-node-kind": "linux",
+        "clab-node-lab-dir": "/home/atoummomen/softnet-container-lab/experiments/02-inter-subnet-gateway-lab/containerlab/clab-inter-subnet-gateway-lab/hs2",
+        "clab-node-longname": "clab-inter-subnet-gateway-lab-hs2",
+        "clab-node-name": "hs2",
+        "clab-node-type": "",
+        "clab-owner": "atoummomen",
+        "clab-topo-file": "/home/atoummomen/softnet-container-lab/experiments/02-inter-subnet-gateway-lab/containerlab/inter-subnet-gateway-lab.clab.yml",
+        "containerlab": "inter-subnet-gateway-lab"
+      },
+      "port-bindings": [
+      ]
+    },
+    "rt1": {
+      "index": "2",
+      "shortname": "rt1",
+      "longname": "clab-inter-subnet-gateway-lab-rt1",
+      "fqdn": "rt1.inter-subnet-gateway-lab.io",
+      "group": "",
+      "labdir": "/home/atoummomen/softnet-container-lab/experiments/02-inter-subnet-gateway-lab/containerlab/clab-inter-subnet-gateway-lab/rt1",
+      "kind": "linux",
+      "image": "clab-ubuntu-softnet:latest",
+      "mgmt-net": "",
+      "mgmt-intf": "",
+      "mgmt-ipv4-address": "172.20.20.3",
+      "mgmt-ipv4-prefix-length": 24,
+      "mgmt-ipv6-address": "3fff:172:20:20::3",
+      "mgmt-ipv6-prefix-length": 64,
+      "mac-address": "",
+      "labels": {
+        "clab-mgmt-net-bridge": "br-229b7c213d09",
+        "clab-node-group": "",
+        "clab-node-kind": "linux",
+        "clab-node-lab-dir": "/home/atoummomen/softnet-container-lab/experiments/02-inter-subnet-gateway-lab/containerlab/clab-inter-subnet-gateway-lab/rt1",
+        "clab-node-longname": "clab-inter-subnet-gateway-lab-rt1",
+        "clab-node-name": "rt1",
+        "clab-node-type": "",
+        "clab-owner": "atoummomen",
+        "clab-topo-file": "/home/atoummomen/softnet-container-lab/experiments/02-inter-subnet-gateway-lab/containerlab/inter-subnet-gateway-lab.clab.yml",
+        "containerlab": "inter-subnet-gateway-lab"
+      },
+      "port-bindings": [
+      ]
+    }
+  },
+  "links": [
+    {
+      "endpoints": {
+        "a": {
+          "node": "hs1",
+          "interface": "eth1",
+          "mac": "aa:c1:ab:91:90:16",
+          "peer": "z"
+        },
+        "z": {
+          "node": "rt1",
+          "interface": "eth1",
+          "mac": "aa:c1:ab:fe:e7:fd",
+          "peer": "a"
+        }
+      }
+    },
+    {
+      "endpoints": {
+        "a": {
+          "node": "rt1",
+          "interface": "eth2",
+          "mac": "aa:c1:ab:00:66:70",
+          "peer": "z"
+        },
+        "z": {
+          "node": "hs2",
+          "interface": "eth1",
+          "mac": "aa:c1:ab:51:da:95",
+          "peer": "a"
+        }
+      }
+    }
+  ]
+}
