@@ -3,13 +3,13 @@ set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
-echo "=== Destroy basic-lab ContainerLab Topology ==="
+echo "=== Destroy bind-entrypoint-lab ContainerLab Topology ==="
 
 cd "${SCRIPT_DIR}"
 
 echo ""
 echo "== Step 1: Destroy topology =="
-containerlab destroy -t basic-lab.clab.yml --cleanup
+containerlab destroy -t bind-entrypoint-lab.clab.yml --cleanup
 echo "[OK] Topology destroyed"
 
 echo ""

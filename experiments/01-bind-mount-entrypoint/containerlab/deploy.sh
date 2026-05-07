@@ -3,7 +3,7 @@ set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
-echo "=== Deploy basic-lab ContainerLab Topology ==="
+echo "=== Deploy bind-entrypoint-lab ContainerLab Topology ==="
 
 cd "${SCRIPT_DIR}"
 
@@ -19,27 +19,27 @@ fi
 
 echo ""
 echo "== Step 2: Deploy containerlab topology =="
-if containerlab inspect -t basic-lab.clab.yml >/dev/null 2>&1; then
+if containerlab inspect -t bind-entrypoint-lab.clab.yml >/dev/null 2>&1; then
     echo "[WARN] Topology already exists, destroying first..."
-    containerlab destroy -t basic-lab.clab.yml --cleanup
+    containerlab destroy -t bind-entrypoint-lab.clab.yml --cleanup
 fi
 
-containerlab deploy -t basic-lab.clab.yml
+containerlab deploy -t bind-entrypoint-lab.clab.yml
 echo "[OK] Topology deployed"
 
 echo ""
 echo "== Step 3: Verify deployment =="
-containerlab inspect -t basic-lab.clab.yml
+containerlab inspect -t bind-entrypoint-lab.clab.yml
 
 echo ""
 echo "=== Deployment Complete ==="
 echo ""
 echo "Access nodes:"
-echo "  docker exec -it clab-basic-lab-node1 bash"
-echo "  docker exec -it clab-basic-lab-node2 bash"
+echo "  docker exec -it clab-bind-entrypoint-lab-node1 bash"
+echo "  docker exec -it clab-bind-entrypoint-lab-node2 bash"
 echo ""
 echo "Test connectivity:"
-echo "  docker exec clab-basic-lab-node1 ping -c 3 10.0.0.2"
-echo "  docker exec clab-basic-lab-node1 ping -6 -c 3 fc00::2"
+echo "  docker exec clab-bind-entrypoint-lab-node1 ping -c 3 10.0.0.2"
+echo "  docker exec clab-bind-entrypoint-lab-node2 ping -6 -c 3 fc00::2"
 echo ""
 echo "Destroy: cd containerlab && ./destroy.sh"

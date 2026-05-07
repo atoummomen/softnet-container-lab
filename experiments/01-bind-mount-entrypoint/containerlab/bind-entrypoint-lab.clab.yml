@@ -1,4 +1,4 @@
-name: basic-lab
+name: bind-entrypoint-lab
 
 topology:
   defaults:

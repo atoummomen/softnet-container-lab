@@ -48,7 +48,7 @@ available inside each container as:
 ## Files Modified
 
 - `containerlab/Dockerfile`
-- `containerlab/basic-lab.clab.yml`
+- `containerlab/bind-entrypoint-lab.clab.yml`
 
 ---
 
@@ -71,13 +71,13 @@ Both nodes configure their interfaces correctly and can successfully ping each o
 cd containerlab
 ./deploy.sh
 
-containerlab inspect -t basic-lab.clab.yml
+containerlab inspect -t bind-entrypoint-lab.clab.yml
 
-docker exec clab-basic-lab-node1 ls -l /entrypoint.sh
-docker exec clab-basic-lab-node2 ls -l /entrypoint.sh
+docker exec clab-bind-entrypoint-lab-node1 ls -l /entrypoint.sh
+docker exec clab-bind-entrypoint-lab-node2 ls -l /entrypoint.sh
 
-docker exec clab-basic-lab-node1 ping -c 3 10.0.0.2
-docker exec clab-basic-lab-node1 ping -6 -c 3 fc00::2
+docker exec clab-bind-entrypoint-lab-node1 ping -c 3 10.0.0.2
+docker exec clab-bind-entrypoint-lab-node1 ping -6 -c 3 fc00::2
 ```
 
 ---
